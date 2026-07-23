@@ -39,6 +39,14 @@ $site = [
         'facebook'  => '#', // * confirm if a page exists
         'tiktok'    => '#', // * confirm if a page exists
     ],
+
+    // SEO / social sharing
+    'locale'   => 'en_US',
+    'og_image' => 'assets/img/og-default.jpg', // * add a 1200×630 share image here
+
+    // Search/AI visibility switch. Carlos: keep the site out of Google/AI until
+    // the content is approved so nothing is cached early. Flip to true at launch.
+    'indexable' => false,
 ];
 
 /** Primary navigation. */

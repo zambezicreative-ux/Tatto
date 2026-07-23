@@ -8,6 +8,14 @@ require_once __DIR__ . '/config.php';
 $current_page      = $current_page      ?? '';
 $page_title        = $page_title        ?? $site['name'] . ' — ' . $site['tagline'];
 $page_description  = $page_description  ?? 'Custom, Japanese-inspired tattoos created with meaning by ' . $site['artist'] . '. A private studio in Dallas, TX. Book a free consultation.';
+$page_type         = $page_type         ?? 'website';
+$page_image        = $page_image        ?? $site['og_image'];
+
+// Absolute URLs (built from the current host so they work on any domain).
+$scheme      = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (int) ($_SERVER['SERVER_PORT'] ?? 0) === 443 ? 'https' : 'http';
+$base_url    = $scheme . '://' . ($_SERVER['HTTP_HOST'] ?? $site['domain']);
+$canonical   = $base_url . strtok($_SERVER['REQUEST_URI'] ?? '/', '?');
+$image_url   = $base_url . '/' . ltrim($page_image, '/');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +24,33 @@ $page_description  = $page_description  ?? 'Custom, Japanese-inspired tattoos cr
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($page_title) ?></title>
     <meta name="description" content="<?= e($page_description) ?>">
+    <link rel="canonical" href="<?= e($canonical) ?>">
+
+    <?php if (!empty($site['indexable'])): ?>
+    <meta name="robots" content="index, follow">
+    <?php else: ?>
+    <!-- Pre-launch: kept out of search/AI until content is approved (config: indexable). -->
+    <meta name="robots" content="noindex, nofollow">
+    <?php endif; ?>
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="<?= e($site['name']) ?>">
+    <meta property="og:type" content="<?= e($page_type) ?>">
+    <meta property="og:url" content="<?= e($canonical) ?>">
+    <meta property="og:title" content="<?= e($page_title) ?>">
+    <meta property="og:description" content="<?= e($page_description) ?>">
+    <meta property="og:image" content="<?= e($image_url) ?>">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="<?= e($site['locale']) ?>">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<?= e($page_title) ?>">
+    <meta name="twitter:description" content="<?= e($page_description) ?>">
+    <meta name="twitter:image" content="<?= e($image_url) ?>">
+
+    <meta name="theme-color" content="#0c0b0a">
 
     <!-- Progressive enhancement: only hide-for-reveal when JS runs, and never leave
          content trapped if the main script fails to load. -->

@@ -12,6 +12,7 @@ elegant labeled placeholder shows in its place.
 | `studio.jpg`         | "Welcome" section           | 1200 × 1500 (portrait)   |
 | `artist.jpg`         | "Meet Your Artist" section  | 1400 × 1600 (portrait)   |
 | `cta.jpg`            | Final CTA background        | 2400 × 1200 (landscape)  |
+| `og-default.jpg`     | Social share preview (Open Graph/Twitter) | **1200 × 630** (exact) |
 | `portfolio-01.jpg` … `portfolio-08.jpg` | Home portfolio carousel + lightbox | 1200 × 1600 (portrait) |
 
 Home page uses **6–8** portfolio images (per the brief). The full set goes on
