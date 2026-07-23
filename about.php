@@ -16,19 +16,33 @@ $page_keywords = [
     'tattoo artist since 1994',
 ];
 
-// Placeholder reviews — REPLACE with the full ~32 real Google reviews (per Carlos).
+// Placeholder reviews — REPLACE with the 32 real Google reviews (per Carlos:
+// screenshot "Mark C. Merchant Tattoo Reviews" and transcribe them here).
+$review_count = 32;
+$review_pool = [
+    'The whole experience felt personal from the first conversation. The finished piece means more than I can put into words.',
+    'Incredible attention to detail and a calm, welcoming studio. My tattoo healed perfectly and looks even better than I imagined.',
+    'I brought a rough idea and it became something far beyond what I pictured. Worth every minute of the process.',
+    'Thirty-plus years of skill shows in every line. Patient, professional, and genuinely invested in getting it right.',
+    'You can feel the respect for the tradition in the work. A true artist — I would not go anywhere else.',
+    'From consultation to aftercare, I felt guided the whole way. The trust made all the difference.',
+    'Mark took the time to understand the meaning behind my idea before he ever picked up a needle.',
+    'The studio is spotless and private. I never felt rushed, and the result speaks for itself.',
+    'Easily the best tattoo experience I have had. Thoughtful, precise, and completely worth the wait.',
+    'He turned a difficult cover-up into a piece I am proud to show off. Remarkable work.',
+    'Beautiful linework and shading. You can tell he genuinely loves what he does.',
+    'A calm, respectful process from start to finish. My Japanese-style piece came out stunning.',
+    'Professional, welcoming, and incredibly talented. I have already booked my next session.',
+    'He listens, he cares, and it shows in the artwork. Highly recommend to anyone serious about their tattoo.',
+    'The consultation alone convinced me I was in the right hands. The final tattoo confirmed it.',
+    'Timeless design and flawless execution. This is what real craftsmanship looks like.',
+];
+
 $reviews = [];
-for ($i = 0; $i < 12; $i++) {
+for ($i = 0; $i < $review_count; $i++) {
     $reviews[] = [
-        'name' => 'Client review',
-        'text' => [
-            'The whole experience felt personal from the first conversation. The finished piece means more than I can put into words.',
-            'Incredible attention to detail and a calm, welcoming studio. My tattoo healed perfectly.',
-            'I brought a rough idea and it became something far beyond what I pictured. Worth every minute.',
-            'Thirty-plus years of skill shows in every line. Patient, professional, and genuinely invested.',
-            'You can feel the respect for the tradition in the work. A true artist.',
-            'From consultation to aftercare, I felt guided the whole way.',
-        ][$i % 6],
+        'name' => 'Google review',
+        'text' => $review_pool[$i % count($review_pool)],
     ];
 }
 ?>
