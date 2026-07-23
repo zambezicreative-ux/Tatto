@@ -1,0 +1,24 @@
+# Dependencies / build
+node_modules/
+vendor/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Secrets & credentials — never commit (FTP creds, .env, config overrides)
+.env
+.env.*
+*.local.php
+config.local.php
+credentials*.txt
+
+# Client assets are delivered separately (photos from Drive) — keep large media out
+# assets/img/ can be committed once optimized; raw drops stay local:
+assets/img/raw/
+
+# Logs
+*.log
