@@ -159,4 +159,22 @@ require __DIR__ . '/includes/page-hero.php';
     </div>
 </section>
 
+<!-- ===================== MAP ===================== -->
+<?php
+// No-key Google Maps embed built from the studio address.
+$map_q     = rawurlencode($site['address']['street'] . ', ' . $site['address']['city']);
+$map_embed = 'https://maps.google.com/maps?q=' . $map_q . '&z=15&output=embed';
+?>
+<section class="map-section" aria-label="Studio location">
+    <iframe
+        title="Map to <?= e($site['name']) ?>, <?= e($site['address']['street']) ?>"
+        src="<?= e($map_embed) ?>"
+        width="100%" height="480" style="border:0"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    <a class="map-directions" href="<?= e($site['address']['maps']) ?>" target="_blank" rel="noopener">
+        Open in Google Maps <span aria-hidden="true">&rarr;</span>
+    </a>
+</section>
+
 <?php require __DIR__ . '/includes/footer.php'; ?>
