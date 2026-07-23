@@ -42,6 +42,9 @@
                 <a href="mailto:<?= e($site['email']) ?>"><?= e($site['email']) ?></a>
             </address>
             <p class="footer-note">By consultation &amp; appointment &middot; Walk-ins welcome</p>
+            <?php if (!empty($site['notice'])): ?>
+                <p class="footer-notice"><?= e($site['notice']) ?></p>
+            <?php endif; ?>
         </div>
 
         <div class="footer-col">

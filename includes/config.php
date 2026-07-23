@@ -28,6 +28,11 @@ $site = [
         'maps'   => 'https://maps.google.com/?q=17370+Preston+Rd+Suite+510+Dallas+TX+75252',
     ],
 
+    // Optional relocation/announcement notice. Renders (footer + contact) only
+    // when non-empty. Studio is transitioning from 9105 Diceman Dr (75218) to
+    // the Preston Rd address above — set the confirmed wording here to show it.
+    'notice' => '',
+
     // Mon–Sat 10–6, closed Sunday (* confirm per-day hours)
     'hours' => [
         'Mon – Sat' => '10:00 AM – 6:00 PM',

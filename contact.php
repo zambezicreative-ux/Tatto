@@ -154,6 +154,9 @@ require __DIR__ . '/includes/page-hero.php';
                 <?php endforeach; ?>
             </ul>
             <p class="contact-note">Free consultation preferred &middot; Walk-ins welcome &middot; Plenty of free parking</p>
+            <?php if (!empty($site['notice'])): ?>
+                <p class="contact-notice"><?= e($site['notice']) ?></p>
+            <?php endif; ?>
         </aside>
 
     </div>

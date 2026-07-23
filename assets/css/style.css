@@ -500,6 +500,11 @@ p { margin: 0 0 1.1em; }
 .footer-col a:hover, address a:hover { color: var(--gold); }
 address { color: var(--text-muted); font-size: .95rem; line-height: 1.9; }
 .footer-note { color: var(--text-muted); font-size: .82rem; margin-top: 1rem; }
+.footer-notice, .contact-notice {
+    margin-top: 1rem; padding: .7rem .9rem; font-size: .82rem; line-height: 1.5;
+    color: var(--gold-soft); background: rgba(200,162,76,.08);
+    border-left: 2px solid var(--gold); border-radius: 2px;
+}
 .hours-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .7rem; }
 .hours-list li { display: flex; justify-content: space-between; gap: 1rem; color: var(--text-muted); font-size: .92rem; }
 .social-links { display: flex; gap: 1.2rem; list-style: none; margin: 1.2rem 0 0; padding: 0; }
