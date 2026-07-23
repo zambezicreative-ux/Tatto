@@ -50,8 +50,8 @@ $review_slides = array_chunk($reviews, 3);
 
 <!-- ============================= HERO ============================= -->
 <section class="hero" id="hero">
-    <!-- IMAGE SLOT: hero tattoo photo (from Drive) as background. Placeholder below. -->
-    <div class="hero-media media-ph" data-label="Hero tattoo photo"></div>
+    <!-- IMAGE SLOT: hero tattoo photo (from Drive) -> assets/img/hero.jpg -->
+    <div class="hero-media"><?= media('assets/img/hero.jpg', 'Hero tattoo photo') ?></div>
     <div class="hero-overlay"></div>
 
     <div class="container hero-inner">
@@ -86,8 +86,8 @@ $review_slides = array_chunk($reviews, 3);
             <p>Every project begins with a meaningful consultation, because the relationship matters as much as the artwork. When the connection is right, the tattoo becomes more than an image. It becomes a timeless piece, created with intention.</p>
             <a class="btn btn-outline" href="about.php">About the Studio</a>
         </div>
-        <!-- IMAGE SLOT: studio interior photo -->
-        <div class="welcome-media media-ph reveal" data-label="Studio interior photo"></div>
+        <!-- IMAGE SLOT: studio interior photo -> assets/img/studio.jpg -->
+        <div class="welcome-media reveal"><?= media('assets/img/studio.jpg', 'Studio interior photo') ?></div>
     </div>
 </section>
 
@@ -106,11 +106,24 @@ $review_slides = array_chunk($reviews, 3);
     <div class="carousel" data-carousel="portfolio">
         <button class="carousel-btn prev" data-dir="prev" aria-label="Previous work">&larr;</button>
         <div class="carousel-track" data-track>
-            <?php foreach ($portfolio as $piece): ?>
-                <!-- IMAGE SLOT: portfolio thumbnail (6–8 from Drive). Click enlarges original per Carlos. -->
-                <figure class="work-card media-ph" data-label="<?= e($piece) ?>">
-                    <figcaption><?= e($piece) ?></figcaption>
-                </figure>
+            <?php foreach ($portfolio as $i => $piece): ?>
+                <?php
+                    // 6–8 pieces on the home page -> assets/img/portfolio-01.jpg …
+                    $img = sprintf('assets/img/portfolio-%02d.jpg', $i + 1);
+                    $has = is_file(__DIR__ . '/' . $img);
+                ?>
+                <?php if ($has): ?>
+                    <!-- On-page thumb is CSS-styled; lightbox opens the untouched original (per Carlos). -->
+                    <a class="work-card has-img" href="<?= e($img) ?>"
+                       data-lightbox="portfolio" data-caption="<?= e($piece) ?>">
+                        <img class="work-thumb" src="<?= e($img) ?>" alt="<?= e($piece) ?> tattoo by <?= e($site['artist']) ?>" loading="lazy" decoding="async">
+                        <figcaption><?= e($piece) ?></figcaption>
+                    </a>
+                <?php else: ?>
+                    <figure class="work-card media-ph" data-label="<?= e($piece) ?>">
+                        <figcaption><?= e($piece) ?></figcaption>
+                    </figure>
+                <?php endif; ?>
             <?php endforeach; ?>
         </div>
         <button class="carousel-btn next" data-dir="next" aria-label="Next work">&rarr;</button>
@@ -154,8 +167,8 @@ $review_slides = array_chunk($reviews, 3);
 <!-- ============================= MEET THE ARTIST ============================= -->
 <section class="artist section" aria-labelledby="artist-h">
     <div class="artist-grid">
-        <!-- IMAGE SLOT: artist working / portrait photo -->
-        <div class="artist-media media-ph reveal" data-label="Artist photo"></div>
+        <!-- IMAGE SLOT: artist working / portrait photo -> assets/img/artist.jpg -->
+        <div class="artist-media reveal"><?= media('assets/img/artist.jpg', 'Artist photo') ?></div>
         <div class="artist-copy reveal">
             <p class="eyebrow">Meet Your Artist</p>
             <h2 id="artist-h" class="section-title">Crafted by passion.<br>Driven by detail.</h2>
@@ -201,8 +214,8 @@ $review_slides = array_chunk($reviews, 3);
 
 <!-- ============================= FINAL CTA ============================= -->
 <section class="cta-band section" aria-labelledby="cta-h">
-    <!-- IMAGE SLOT: subtle tattoo texture background -->
-    <div class="cta-media media-ph" data-label="Texture background"></div>
+    <!-- IMAGE SLOT: subtle tattoo texture background -> assets/img/cta.jpg -->
+    <div class="cta-media"><?= media('assets/img/cta.jpg', 'Texture background') ?></div>
     <div class="container cta-inner reveal">
         <h2 id="cta-h" class="section-title">Ready to create<br>something that lasts?</h2>
         <p>The best tattoos start with trust. Let’s talk about yours.</p>

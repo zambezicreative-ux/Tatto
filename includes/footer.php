@@ -61,6 +61,17 @@
     </div>
 </footer>
 
+<!-- Lightbox: shows the original, unstyled photo at full size (per Carlos). -->
+<div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox-nav prev" type="button" aria-label="Previous image">&lsaquo;</button>
+    <figure class="lightbox-stage">
+        <img class="lightbox-img" src="" alt="">
+        <figcaption class="lightbox-caption"></figcaption>
+    </figure>
+    <button class="lightbox-nav next" type="button" aria-label="Next image">&rsaquo;</button>
+</div>
+
 <script src="assets/js/main.js" defer></script>
 </body>
 </html>

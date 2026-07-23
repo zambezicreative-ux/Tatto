@@ -55,3 +55,26 @@ function e(?string $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 }
+
+/**
+ * Output a real <img> when the file exists, otherwise a labeled placeholder.
+ * Drop optimized photos into assets/img/ using the names in assets/img/README.md
+ * and they light up automatically — no markup changes needed.
+ *
+ * $rel   Path relative to site root, e.g. 'assets/img/hero.jpg'
+ * $label Placeholder caption shown until the real photo lands
+ * $opts  ['class' => '', 'alt' => '', 'lazy' => true]
+ */
+function media(string $rel, string $label, array $opts = []): string
+{
+    $abs   = __DIR__ . '/../' . ltrim($rel, '/');
+    $class = trim('cover-img ' . ($opts['class'] ?? ''));
+    $alt   = $opts['alt'] ?? $label;
+    $lazy  = ($opts['lazy'] ?? true) ? ' loading="lazy" decoding="async"' : '';
+
+    if (is_file($abs)) {
+        return sprintf('<img src="%s" alt="%s" class="%s"%s>', e($rel), e($alt), e($class), $lazy);
+    }
+    return sprintf('<div class="media-ph %s" data-label="%s"></div>', e($opts['class'] ?? ''), e($label));
+}
+

@@ -72,6 +72,53 @@
         });
     }
 
+    /* ---------- Lightbox (originals, unstyled, full size) ---------- */
+    var lb = document.getElementById('lightbox');
+    if (lb) {
+        var lbImg = lb.querySelector('.lightbox-img');
+        var lbCap = lb.querySelector('.lightbox-caption');
+        var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
+        var current = 0;
+        var lastFocus = null;
+
+        var show = function (i) {
+            current = (i + triggers.length) % triggers.length;
+            var t = triggers[current];
+            lbImg.src = t.getAttribute('href');
+            lbImg.alt = t.querySelector('img') ? t.querySelector('img').alt : '';
+            lbCap.textContent = t.getAttribute('data-caption') || '';
+        };
+        var open = function (i, origin) {
+            lastFocus = origin || null;
+            show(i);
+            lb.classList.add('is-open');
+            lb.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+            lb.querySelector('.lightbox-close').focus();
+        };
+        var close = function () {
+            lb.classList.remove('is-open');
+            lb.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+            lbImg.src = '';
+            if (lastFocus) lastFocus.focus();
+        };
+
+        triggers.forEach(function (t, i) {
+            t.addEventListener('click', function (e) { e.preventDefault(); open(i, t); });
+        });
+        lb.querySelector('.lightbox-close').addEventListener('click', close);
+        lb.querySelector('.prev').addEventListener('click', function () { show(current - 1); });
+        lb.querySelector('.next').addEventListener('click', function () { show(current + 1); });
+        lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+        document.addEventListener('keydown', function (e) {
+            if (!lb.classList.contains('is-open')) return;
+            if (e.key === 'Escape') close();
+            else if (e.key === 'ArrowLeft') show(current - 1);
+            else if (e.key === 'ArrowRight') show(current + 1);
+        });
+    }
+
     /* ---------- Reviews carousel ---------- */
     var reviews = document.querySelector('[data-reviews]');
     if (reviews) {
