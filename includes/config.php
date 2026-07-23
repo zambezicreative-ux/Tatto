@@ -104,6 +104,25 @@ function e(?string $value): string
 }
 
 /**
+ * Social links that actually exist. Skips blank/'#' placeholders so we never
+ * render dead links (Mark left Facebook/TikTok blank). Add a real URL in
+ * $site['social'] and it appears automatically.
+ */
+function active_socials(): array
+{
+    global $site;
+    $labels = ['instagram' => 'Instagram', 'facebook' => 'Facebook', 'tiktok' => 'TikTok', 'youtube' => 'YouTube'];
+    $out = [];
+    foreach ($labels as $key => $label) {
+        $url = $site['social'][$key] ?? '';
+        if ($url !== '' && $url !== '#') {
+            $out[$label] = $url;
+        }
+    }
+    return $out;
+}
+
+/**
  * Output a real <img> when the file exists, otherwise a labeled placeholder.
  * Drop optimized photos into assets/img/ using the names in assets/img/README.md
  * and they light up automatically — no markup changes needed.

@@ -18,9 +18,9 @@
             </a>
             <p class="footer-blurb">Custom, Japanese-inspired tattoos created with intention. Your story, made permanent.</p>
             <ul class="social-links" aria-label="Social media">
-                <li><a href="<?= e($site['social']['instagram']) ?>" aria-label="Instagram" rel="noopener" target="_blank">Instagram</a></li>
-                <li><a href="<?= e($site['social']['facebook']) ?>" aria-label="Facebook" rel="noopener" target="_blank">Facebook</a></li>
-                <li><a href="<?= e($site['social']['tiktok']) ?>" aria-label="TikTok" rel="noopener" target="_blank">TikTok</a></li>
+                <?php foreach (active_socials() as $label => $url): ?>
+                    <li><a href="<?= e($url) ?>" aria-label="<?= e($label) ?>" rel="noopener" target="_blank"><?= e($label) ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </div>
 
@@ -59,8 +59,12 @@
     </div>
 
     <div class="container footer-bottom">
-        <p>&copy; <?= date('Y') ?> <?= e($site['name']) ?>. All rights reserved.</p>
-        <p class="footer-legal">18+ only &middot; Est. <?= e($site['est']) ?></p>
+        <p>&copy; <?= date('Y') ?> Higher Truth Tattoo Inc. All rights reserved.</p>
+        <p class="footer-legal">
+            <a href="privacy.php">Privacy Policy</a>
+            <span aria-hidden="true">&middot;</span> 18+ only
+            <span aria-hidden="true">&middot;</span> Est. <?= e($site['est']) ?>
+        </p>
     </div>
 </footer>
 

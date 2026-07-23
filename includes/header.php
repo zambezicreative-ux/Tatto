@@ -41,6 +41,9 @@ $image_url   = $base_url . '/' . ltrim($page_image, '/');
     <?php endif; ?>
     <link rel="canonical" href="<?= e($canonical) ?>">
 
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
     <?php if (!empty($site['indexable'])): ?>
     <meta name="robots" content="index, follow">
     <?php else: ?>

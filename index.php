@@ -68,9 +68,9 @@ $reviews = array_slice(require __DIR__ . '/includes/reviews-data.php', 0, 12);
                 <a class="btn btn-ghost" href="portfolio.php">View the Portfolio</a>
             </div>
             <ul class="hero-social reveal" aria-label="Social media">
-                <li><a href="<?= e($site['social']['instagram']) ?>" target="_blank" rel="noopener">Instagram</a></li>
-                <li><a href="<?= e($site['social']['facebook']) ?>" target="_blank" rel="noopener">Facebook</a></li>
-                <li><a href="<?= e($site['social']['tiktok']) ?>" target="_blank" rel="noopener">TikTok</a></li>
+                <?php foreach (active_socials() as $label => $url): ?>
+                    <li><a href="<?= e($url) ?>" target="_blank" rel="noopener"><?= e($label) ?></a></li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
