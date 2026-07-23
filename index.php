@@ -135,7 +135,7 @@ $reviews = [
 
 <!-- ============================= PROCESS ============================= -->
 <!-- Per Carlos: original "From concept to legacy" CTA removed. -->
-<section class="process section section-dark" aria-labelledby="process-h">
+<section class="process section section-dark jp-pattern" aria-labelledby="process-h">
     <div class="container process-grid">
         <div class="process-intro reveal">
             <p class="eyebrow">The Process</p>

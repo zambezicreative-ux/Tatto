@@ -36,3 +36,15 @@ The Drive folder holds ~47 originals mixing **DNG (raw), HEIC, PNG and large JPG
 4. Rename to the filenames in the table and drop them in this folder.
 
 Keep raw/unoptimized drops out of git — put them in `assets/img/raw/` (git-ignored).
+
+## Japanese pattern textures (`patterns/`)
+Seamless, tintable SVG tiles of traditional wagara (和柄) motifs — geometric and
+respectful (kimono-style decoration, nothing sacred or figurative):
+- `seigaiha.svg` — ocean waves (used site-wide as a faint background texture)
+- `shippo.svg` — seven treasures (interlocking circles)
+- `asanoha.svg` — hemp leaf
+
+Currently `seigaiha` is applied very subtly (~5% opacity) via the `.jp-pattern`
+class on the inner-page banners and the home "process" section. To swap in a
+different motif, change the `background` URL in `.jp-pattern::before`
+(assets/css/style.css). Gold stroke is baked in (#c8a24c).

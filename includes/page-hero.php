@@ -6,7 +6,7 @@
 $hero_eyebrow = $hero_eyebrow ?? '';
 $hero_sub     = $hero_sub     ?? '';
 ?>
-<section class="page-hero">
+<section class="page-hero jp-pattern">
     <span class="page-hero-glow" aria-hidden="true"></span>
     <div class="container">
         <?php if ($hero_eyebrow !== ''): ?>

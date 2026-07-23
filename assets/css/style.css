@@ -506,6 +506,18 @@ address { color: var(--text-muted); font-size: .95rem; line-height: 1.9; }
     overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
 
+/* ---- Subtle Japanese wave texture (seigaiha), used sparingly ---- */
+.jp-pattern { position: relative; }
+.jp-pattern::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background: url(../img/patterns/seigaiha.svg) repeat;
+    background-size: 88px 44px;
+    opacity: .05;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 35%, #000 65%, transparent);
+            mask-image: linear-gradient(180deg, transparent, #000 35%, #000 65%, transparent);
+}
+.jp-pattern > * { position: relative; z-index: 1; }
+
 /* ---- Page hero (inner banner) ---- */
 .page-hero {
     position: relative; overflow: hidden;
