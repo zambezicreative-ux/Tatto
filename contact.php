@@ -13,6 +13,12 @@ $current_page     = 'contact';
 $page_title       = 'Contact — ' . $site['name'];
 $page_description = 'Book a free consultation or ask a question. ' . $site['name']
     . ', ' . $site['address']['street'] . ', ' . $site['address']['city'] . '.';
+$page_keywords = [
+    'book tattoo appointment Dallas',
+    'tattoo consultation Dallas',
+    'tattoo shop Preston Road',
+    'contact tattoo artist Dallas',
+];
 
 $status = '';           // '', 'ok', 'error', 'invalid'
 $errors = [];

@@ -8,6 +8,13 @@ $current_page     = 'faq';
 $page_title       = 'FAQ — ' . $site['name'];
 $page_description = 'Common questions about booking, pricing, deposits, aftercare, hours, and payment at '
     . $site['name'] . ' in Dallas, TX.';
+$page_keywords = [
+    'how much do tattoos cost Dallas',
+    'tattoo deposit', 'tattoo aftercare',
+    'walk-in tattoo Dallas',
+    'tattoo appointment Dallas',
+    'tattoo age requirement',
+];
 
 $faqs = [
     ['Do you take walk-ins?',

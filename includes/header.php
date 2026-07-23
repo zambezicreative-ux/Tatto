@@ -11,6 +11,18 @@ $page_description  = $page_description  ?? 'Custom, Japanese-inspired tattoos cr
 $page_type         = $page_type         ?? 'website';
 $page_image        = $page_image        ?? $site['og_image'];
 
+// Merge shared + page-specific keywords, de-duplicated (case-insensitive).
+$page_keywords = $page_keywords ?? [];
+$all_keywords  = array_merge($site_keywords ?? [], $page_keywords);
+$seen = [];
+$all_keywords = array_filter($all_keywords, static function ($kw) use (&$seen) {
+    $k = strtolower(trim($kw));
+    if ($k === '' || isset($seen[$k])) return false;
+    $seen[$k] = true;
+    return true;
+});
+$keywords_str = implode(', ', $all_keywords);
+
 // Absolute URLs (built from the current host so they work on any domain).
 $scheme      = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') || (int) ($_SERVER['SERVER_PORT'] ?? 0) === 443 ? 'https' : 'http';
 $base_url    = $scheme . '://' . ($_SERVER['HTTP_HOST'] ?? $site['domain']);
@@ -24,6 +36,9 @@ $image_url   = $base_url . '/' . ltrim($page_image, '/');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= e($page_title) ?></title>
     <meta name="description" content="<?= e($page_description) ?>">
+    <?php if ($keywords_str !== ''): ?>
+    <meta name="keywords" content="<?= e($keywords_str) ?>">
+    <?php endif; ?>
     <link rel="canonical" href="<?= e($canonical) ?>">
 
     <?php if (!empty($site['indexable'])): ?>

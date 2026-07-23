@@ -58,6 +58,24 @@ $nav = [
     'contact'   => ['label' => 'Contact',   'url' => 'contact.php'],
 ];
 
+/**
+ * SEO keywords. A shared base set is merged with each page's own keywords
+ * (pages set $page_keywords before including the header). Kept focused and
+ * relevant — the visible copy already carries these terms naturally.
+ */
+$site_keywords = [
+    'Higher Truth Tattoo',
+    'Mark C. Merchant',
+    'Japanese tattoo Dallas',
+    'Japanese-inspired tattoo',
+    'tattoo studio Dallas',
+    'Dallas tattoo artist',
+    'custom tattoo Dallas',
+    'North Dallas tattoo',
+    'Preston Road tattoo',
+    'tattoo shop near me',
+];
+
 /** Contact-form delivery. Set a real, domain-matching From address before launch. */
 $form = [
     'to'      => $site['email'],                 // where enquiries are delivered

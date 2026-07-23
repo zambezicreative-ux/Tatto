@@ -9,6 +9,13 @@ $current_page     = 'portfolio';
 $page_title       = 'Portfolio — ' . $site['name'];
 $page_description = 'Selected Japanese-inspired tattoo work by ' . $site['artist']
     . ': traditional Japanese, neo/modern Japanese, and custom pieces.';
+$page_keywords = [
+    'Japanese tattoo portfolio',
+    'koi tattoo', 'dragon tattoo', 'hannya mask tattoo', 'peony tattoo',
+    'black and grey tattoo Dallas',
+    'cover-up tattoo Dallas',
+    'tattoo sleeve Dallas',
+];
 
 /*
  * Groups of work. Numbers map to assets/img/portfolio-NN.jpg.
