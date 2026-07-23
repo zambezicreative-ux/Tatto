@@ -38,6 +38,15 @@ $steps = [
 // Placeholder motifs for the portfolio teaser (traditional Japanese subjects).
 $portfolio = ['Koi', 'Dragon', 'Hannya', 'Peony', 'Tiger', 'Wind & Water', 'Snake'];
 
+// Services — exactly what Mark offers (questionnaire section 9).
+$services = [
+    ['Japanese-Inspired Tattoos', 'Custom traditional and neo/modern Japanese work, designed around your story.'],
+    ['Custom Tattoo Design',      'Original artwork drawn for you alone — from first concept to final stencil.'],
+    ['Cover-Ups',                 'Transforming existing tattoos into something you’re proud to wear.'],
+    ['Touch-Ups & Rework',        'Refreshing, continuing, or adding to work you already have.'],
+    ['Gift Cards',                'Give the gift of custom artwork and a session with Mark.'],
+];
+
 /*
  * Placeholder testimonials — REPLACE with real Google reviews.
  * Plan (per Carlos): screenshot "Mark C. Merchant Tattoo Reviews" and
@@ -130,6 +139,27 @@ $reviews = [
                 <p><?= e($f['text']) ?></p>
             </div>
         <?php endforeach; ?>
+    </div>
+</section>
+
+<!-- ============================= SERVICES ============================= -->
+<section class="services-sec section" aria-labelledby="services-h">
+    <div class="container">
+        <div class="section-head reveal">
+            <div>
+                <p class="eyebrow">What I Offer</p>
+                <h2 id="services-h" class="section-title">Services.</h2>
+            </div>
+            <p class="services-note">By consultation &amp; appointment &middot; Walk-ins welcome</p>
+        </div>
+        <div class="services-list">
+            <?php foreach ($services as $s): ?>
+                <div class="services-row reveal">
+                    <h3><?= e($s[0]) ?></h3>
+                    <p><?= e($s[1]) ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </section>
 

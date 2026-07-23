@@ -409,6 +409,22 @@ p { margin: 0 0 1.1em; }
 .feature:hover .feature-icon { transform: rotate(45deg); background: rgba(200,162,76,.1); }
 
 /* =============================================================
+   SERVICES
+   ============================================================= */
+.services-sec { background: var(--black); }
+.services-note { font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text-muted); margin: 0; }
+.services-list { border-top: 1px solid var(--line-dark); }
+.services-row {
+    display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(1rem, 4vw, 3rem);
+    padding: 1.9rem 0; border-bottom: 1px solid var(--line-dark); align-items: baseline;
+    transition: padding-left .4s var(--ease);
+}
+.services-row:hover { padding-left: .6rem; }
+.services-row h3 { font-family: var(--f-display); font-size: clamp(1.35rem, 2.6vw, 1.8rem); color: var(--text-light); margin: 0; }
+.services-row:hover h3 { color: var(--gold); }
+.services-row p { color: var(--text-muted); margin: 0; }
+
+/* =============================================================
    PROCESS
    ============================================================= */
 .process-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(2rem, 6vw, 5rem); align-items: start; }
@@ -707,6 +723,8 @@ address { color: var(--text-muted); font-size: .95rem; line-height: 1.9; }
     .field-row { grid-template-columns: 1fr; }
     .artist-facts { grid-template-columns: 1fr; }
     .faq-cta .cta-actions .btn { width: 100%; justify-content: center; }
+    .services-row { grid-template-columns: 1fr; gap: .4rem; }
+    .services-row:hover { padding-left: 0; }
 }
 
 /* =============================================================
