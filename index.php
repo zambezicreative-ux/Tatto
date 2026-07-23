@@ -44,7 +44,6 @@ $reviews = [
     ['name' => 'Client review',  'text' => 'You can feel the respect for the tradition in the work. A true artist — I would not go anywhere else.'],
     ['name' => 'Client review',  'text' => 'From consultation to aftercare, I felt guided the whole way. The trust made all the difference.'],
 ];
-$review_slides = array_chunk($reviews, 3);
 ?>
 <?php require __DIR__ . '/includes/header.php'; ?>
 
@@ -107,23 +106,7 @@ $review_slides = array_chunk($reviews, 3);
         <button class="carousel-btn prev" data-dir="prev" aria-label="Previous work">&larr;</button>
         <div class="carousel-track" data-track>
             <?php foreach ($portfolio as $i => $piece): ?>
-                <?php
-                    // 6–8 pieces on the home page -> assets/img/portfolio-01.jpg …
-                    $img = sprintf('assets/img/portfolio-%02d.jpg', $i + 1);
-                    $has = is_file(__DIR__ . '/' . $img);
-                ?>
-                <?php if ($has): ?>
-                    <!-- On-page thumb is CSS-styled; lightbox opens the untouched original (per Carlos). -->
-                    <a class="work-card has-img" href="<?= e($img) ?>"
-                       data-lightbox="portfolio" data-caption="<?= e($piece) ?>">
-                        <img class="work-thumb" src="<?= e($img) ?>" alt="<?= e($piece) ?> tattoo by <?= e($site['artist']) ?>" loading="lazy" decoding="async">
-                        <figcaption><?= e($piece) ?></figcaption>
-                    </a>
-                <?php else: ?>
-                    <figure class="work-card media-ph" data-label="<?= e($piece) ?>">
-                        <figcaption><?= e($piece) ?></figcaption>
-                    </figure>
-                <?php endif; ?>
+                <?= portfolio_item($i + 1, $piece) ?>
             <?php endforeach; ?>
         </div>
         <button class="carousel-btn next" data-dir="next" aria-label="Next work">&rarr;</button>
@@ -191,24 +174,7 @@ $review_slides = array_chunk($reviews, 3);
             <p class="reviews-trust"><strong><?= e($site['years']) ?> Years</strong> &middot; <strong>80+ Five-Star Reviews</strong> &middot; <strong>Award-Winning</strong></p>
         </div>
 
-        <div class="reviews-carousel" data-reviews>
-            <div class="reviews-viewport">
-                <div class="reviews-track" data-review-track>
-                    <?php foreach ($review_slides as $slide): ?>
-                        <div class="review-slide">
-                            <?php foreach ($slide as $r): ?>
-                                <blockquote class="review-card">
-                                    <span class="quote-mark" aria-hidden="true">&ldquo;</span>
-                                    <p><?= e($r['text']) ?></p>
-                                    <cite><?= e($r['name']) ?></cite>
-                                </blockquote>
-                            <?php endforeach; ?>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            <div class="reviews-dots" data-review-dots aria-label="Choose review slide"></div>
-        </div>
+        <?php require __DIR__ . '/includes/reviews.php'; ?>
     </div>
 </section>
 

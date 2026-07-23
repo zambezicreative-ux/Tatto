@@ -41,13 +41,20 @@ $site = [
     ],
 ];
 
-/** Primary navigation. Pages other than Home are built later. */
+/** Primary navigation. */
 $nav = [
     'home'      => ['label' => 'Home',      'url' => 'index.php'],
     'portfolio' => ['label' => 'Portfolio', 'url' => 'portfolio.php'],
     'about'     => ['label' => 'About',     'url' => 'about.php'],
     'faq'       => ['label' => 'FAQ',       'url' => 'faq.php'],
     'contact'   => ['label' => 'Contact',   'url' => 'contact.php'],
+];
+
+/** Contact-form delivery. Set a real, domain-matching From address before launch. */
+$form = [
+    'to'      => $site['email'],                 // where enquiries are delivered
+    'from'    => 'no-reply@' . $site['domain'],  // * must be a domain you control (SPF/DKIM)
+    'subject' => 'New enquiry from ' . $site['name'] . ' website',
 ];
 
 /** Escape helper for safe output. */
@@ -76,5 +83,29 @@ function media(string $rel, string $label, array $opts = []): string
         return sprintf('<img src="%s" alt="%s" class="%s"%s>', e($rel), e($alt), e($class), $lazy);
     }
     return sprintf('<div class="media-ph %s" data-label="%s"></div>', e($opts['class'] ?? ''), e($label));
+}
+
+/**
+ * A single portfolio tile. Renders a lightbox-enabled photo when the file
+ * exists, otherwise a labeled placeholder. Shared by home + portfolio pages.
+ */
+function portfolio_item(int $n, string $label, string $group = 'portfolio'): string
+{
+    global $site;
+    $img = sprintf('assets/img/portfolio-%02d.jpg', $n);
+    $abs = __DIR__ . '/../' . $img;
+
+    if (is_file($abs)) {
+        return sprintf(
+            '<a class="work-card has-img" href="%1$s" data-lightbox="%2$s" data-caption="%3$s">'
+          . '<img class="work-thumb" src="%1$s" alt="%3$s tattoo by %4$s" loading="lazy" decoding="async">'
+          . '<figcaption>%3$s</figcaption></a>',
+            e($img), e($group), e($label), e($site['artist'])
+        );
+    }
+    return sprintf(
+        '<figure class="work-card media-ph" data-label="%1$s"><figcaption>%1$s</figcaption></figure>',
+        e($label)
+    );
 }
 
