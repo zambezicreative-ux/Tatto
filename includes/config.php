@@ -59,21 +59,30 @@ $nav = [
 ];
 
 /**
- * SEO keywords. A shared base set is merged with each page's own keywords
- * (pages set $page_keywords before including the header). Kept focused and
- * relevant — the visible copy already carries these terms naturally.
+ * SEO keywords — aligned to what the client wants to be FOUND for (from the
+ * questionnaire): Japanese-inspired tattooing, in Dallas, plus the brand and
+ * artist name for branded searches.
+ *
+ * Target search themes:
+ *   1. Specialty  → "Japanese tattoo Dallas", "traditional Japanese tattoo (Irezumi)"
+ *   2. Location   → Dallas / North Dallas / 75252 / Preston Rd
+ *   3. Brand/name → "Higher Truth Tattoo", "Mark C. Merchant"
+ *   4. Intent     → book / consultation / appointment (set per page)
+ *
+ * A shared base set is merged with each page's own keywords (pages set
+ * $page_keywords before including the header). Kept focused, not stuffed —
+ * the titles, descriptions and visible copy carry these terms too.
  */
 $site_keywords = [
     'Higher Truth Tattoo',
     'Mark C. Merchant',
     'Japanese tattoo Dallas',
     'Japanese-inspired tattoo',
-    'tattoo studio Dallas',
-    'Dallas tattoo artist',
-    'custom tattoo Dallas',
+    'traditional Japanese tattoo',
+    'Irezumi Dallas',
+    'Dallas tattoo studio',
     'North Dallas tattoo',
-    'Preston Road tattoo',
-    'tattoo shop near me',
+    'tattoo 75252',
 ];
 
 /** Contact-form delivery. Set a real, domain-matching From address before launch. */

@@ -6,15 +6,15 @@
 require_once __DIR__ . '/includes/config.php';
 
 $current_page     = 'portfolio';
-$page_title       = 'Portfolio — ' . $site['name'];
-$page_description = 'Selected Japanese-inspired tattoo work by ' . $site['artist']
-    . ': traditional Japanese, neo/modern Japanese, and custom pieces.';
+$page_title       = 'Japanese Tattoo Portfolio — Dallas, TX | ' . $site['name'];
+$page_description = 'Japanese-inspired tattoo work by ' . $site['artist']
+    . ' in Dallas: traditional Japanese and neo/modern Japanese sleeves, koi, dragons, and custom pieces.';
 $page_keywords = [
     'Japanese tattoo portfolio',
-    'koi tattoo', 'dragon tattoo', 'hannya mask tattoo', 'peony tattoo',
-    'black and grey tattoo Dallas',
+    'Japanese sleeve tattoo',
+    'koi tattoo', 'dragon tattoo', 'hannya mask tattoo',
+    'neo Japanese tattoo',
     'cover-up tattoo Dallas',
-    'tattoo sleeve Dallas',
 ];
 
 /*

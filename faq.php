@@ -5,15 +5,15 @@
 require_once __DIR__ . '/includes/config.php';
 
 $current_page     = 'faq';
-$page_title       = 'FAQ — ' . $site['name'];
+$page_title       = 'Tattoo FAQ — Dallas, TX | ' . $site['name'];
 $page_description = 'Common questions about booking, pricing, deposits, aftercare, hours, and payment at '
-    . $site['name'] . ' in Dallas, TX.';
+    . $site['name'] . ', a Japanese tattoo studio in Dallas, TX.';
 $page_keywords = [
-    'how much do tattoos cost Dallas',
-    'tattoo deposit', 'tattoo aftercare',
+    'how much does a Japanese tattoo cost',
+    'tattoo consultation Dallas',
     'walk-in tattoo Dallas',
-    'tattoo appointment Dallas',
-    'tattoo age requirement',
+    'tattoo aftercare',
+    'tattoo deposit',
 ];
 
 $faqs = [

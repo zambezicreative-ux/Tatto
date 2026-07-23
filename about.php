@@ -6,15 +6,14 @@
 require_once __DIR__ . '/includes/config.php';
 
 $current_page     = 'about';
-$page_title       = 'About ' . $site['name'] . ' — ' . $site['artist'];
-$page_description = 'The story behind ' . $site['name'] . '. Meet ' . $site['artist']
-    . ', a Dallas tattoo artist with more than three decades devoted to Japanese-inspired work.';
+$page_title       = 'Mark C. Merchant — Japanese Tattoo Artist in Dallas | ' . $site['name'];
+$page_description = 'Meet ' . $site['artist'] . ', a Dallas Japanese tattoo artist with more than three '
+    . 'decades of experience. The story and philosophy behind Higher Truth Tattoo.';
 $page_keywords = [
-    'experienced tattoo artist Dallas',
-    'Japanese tattoo artist',
-    'Mark Merchant tattoo',
-    'award-winning tattoo artist',
-    'tattoo since 1994',
+    'Mark Merchant tattoo artist',
+    'experienced Japanese tattoo artist',
+    'award-winning tattoo artist Dallas',
+    'tattoo artist since 1994',
 ];
 
 // Placeholder reviews — REPLACE with the full ~32 real Google reviews (per Carlos).

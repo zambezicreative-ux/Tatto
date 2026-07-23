@@ -8,15 +8,15 @@
 require_once __DIR__ . '/includes/config.php';
 
 $current_page     = 'home';
-$page_title       = $site['name'] . ' — Japanese-Inspired Tattoos in Dallas, TX';
-$page_description = 'Art that carries meaning for a lifetime. Custom, Japanese-inspired tattooing by '
-    . $site['artist'] . ' — a private Dallas studio. Book your free consultation.';
+$page_title       = 'Japanese Tattoo Artist in Dallas, TX | ' . $site['name'];
+$page_description = 'Higher Truth Tattoo — Japanese-inspired tattooing by ' . $site['artist']
+    . ' in Dallas, TX. Traditional and modern Japanese work, custom designs, and cover-ups. Book a free consultation.';
 $page_keywords = [
-    'best tattoo artist Dallas',
-    'traditional Japanese tattoo',
-    'Irezumi Dallas',
+    'Japanese tattoo artist Dallas',
+    'custom Japanese tattoo',
+    'best Japanese tattoo Dallas',
     'free tattoo consultation Dallas',
-    'koi tattoo', 'dragon tattoo',
+    'book tattoo appointment Dallas',
 ];
 
 /* ---- Content pulled from the questionnaire ---- */

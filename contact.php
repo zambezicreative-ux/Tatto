@@ -10,14 +10,14 @@
 require_once __DIR__ . '/includes/config.php';
 
 $current_page     = 'contact';
-$page_title       = 'Contact — ' . $site['name'];
-$page_description = 'Book a free consultation or ask a question. ' . $site['name']
-    . ', ' . $site['address']['street'] . ', ' . $site['address']['city'] . '.';
+$page_title       = 'Book a Free Consultation — Dallas, TX | ' . $site['name'];
+$page_description = 'Book a free consultation with ' . $site['artist'] . ' at ' . $site['name']
+    . ', ' . $site['address']['street'] . ', ' . $site['address']['city'] . '. Japanese-inspired tattooing in Dallas.';
 $page_keywords = [
-    'book tattoo appointment Dallas',
+    'book Japanese tattoo Dallas',
     'tattoo consultation Dallas',
-    'tattoo shop Preston Road',
-    'contact tattoo artist Dallas',
+    'tattoo shop Preston Road Dallas',
+    'Higher Truth Tattoo location',
 ];
 
 $status = '';           // '', 'ok', 'error', 'invalid'
