@@ -458,15 +458,32 @@ p { margin: 0 0 1.1em; }
 .review-slide {
     flex: 0 0 100%;
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;
+    align-items: start;
 }
 .review-card {
-    margin: 0; padding: 2.2rem 2rem; background: var(--ink-2);
-    border: 1px solid var(--line-dark); border-radius: var(--radius); position: relative;
+    margin: 0; padding: 1.8rem 1.7rem; background: var(--ink-2);
+    border: 1px solid var(--line-dark); border-radius: var(--radius);
+    display: flex; flex-direction: column;
 }
-.quote-mark { font-family: var(--f-display); font-size: 3.4rem; line-height: .5; color: var(--gold); display: block; margin-bottom: .6rem; }
-.review-card p { font-size: 1rem; color: var(--text-light); font-style: italic; }
-.review-card cite {
-    font-style: normal; font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--gold);
+.review-top { display: flex; align-items: center; gap: .8rem; margin-bottom: 1rem; }
+.review-avatar {
+    flex: 0 0 auto; width: 42px; height: 42px; border-radius: 50%;
+    display: grid; place-content: center;
+    background: linear-gradient(135deg, var(--gold-soft), var(--gold-deep));
+    color: #241a06; font-family: var(--f-display); font-weight: 700; font-size: 1.2rem;
+}
+.review-meta { display: flex; flex-direction: column; gap: .2rem; margin-right: auto; min-width: 0; }
+.review-name {
+    font-style: normal; font-size: .96rem; font-weight: 500; color: var(--text-light);
+    letter-spacing: normal; text-transform: none; line-height: 1.1;
+}
+.review-stars { color: var(--gold); font-size: .92rem; letter-spacing: 2px; line-height: 1; }
+.review-google { flex: 0 0 auto; display: inline-flex; align-items: center; opacity: .95; }
+.g-logo { display: block; }
+.review-text { font-size: .95rem; color: var(--text-muted); line-height: 1.65; margin: 0 0 1.1rem; font-style: normal; }
+.review-when {
+    margin-top: auto; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--text-dark-mut); display: inline-flex; align-items: center; gap: .3rem;
 }
 .reviews-dots { display: flex; justify-content: center; gap: .7rem; margin-top: 2.4rem; }
 .reviews-dots button {

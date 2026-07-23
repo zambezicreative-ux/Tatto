@@ -47,19 +47,8 @@ $services = [
     ['Gift Cards',                'Give the gift of custom artwork and a session with Mark.'],
 ];
 
-/*
- * Placeholder testimonials — REPLACE with real Google reviews.
- * Plan (per Carlos): screenshot "Mark C. Merchant Tattoo Reviews" and
- * transcribe ~12 for the homepage carousel, 32 for the About page.
- */
-$reviews = [
-    ['name' => 'Client review',  'text' => 'The whole experience felt personal from the first conversation. Mark listened, and the finished piece means more than I can put into words.'],
-    ['name' => 'Client review',  'text' => 'Incredible attention to detail and a calm, welcoming studio. My tattoo healed perfectly and looks even better than I imagined.'],
-    ['name' => 'Client review',  'text' => 'I brought a rough idea and Mark turned it into something far beyond what I pictured. Worth every minute of the process.'],
-    ['name' => 'Client review',  'text' => 'Thirty-plus years of skill shows in every line. Professional, patient, and genuinely invested in getting it right.'],
-    ['name' => 'Client review',  'text' => 'You can feel the respect for the tradition in the work. A true artist — I would not go anywhere else.'],
-    ['name' => 'Client review',  'text' => 'From consultation to aftercare, I felt guided the whole way. The trust made all the difference.'],
-];
+// Real Google reviews (transcribed from screenshots). Home shows the first 12.
+$reviews = array_slice(require __DIR__ . '/includes/reviews-data.php', 0, 12);
 ?>
 <?php require __DIR__ . '/includes/header.php'; ?>
 
