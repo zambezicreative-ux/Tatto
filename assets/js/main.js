@@ -117,6 +117,56 @@
             else if (e.key === 'ArrowLeft') show(current - 1);
             else if (e.key === 'ArrowRight') show(current + 1);
         });
+
+        /* Touch / swipe (mobile): left/right = prev/next, swipe down = close. */
+        var EASE = 'cubic-bezier(.22,.61,.36,1)';
+        var THRESH_X = 45;   // horizontal distance to change image
+        var THRESH_Y = 90;   // vertical distance to dismiss
+        var sx = 0, sy = 0, dx = 0, dy = 0, tracking = false, moved = false;
+
+        var springBack = function () {
+            lbImg.style.transition = reduceMotion ? 'none' : ('transform .3s ' + EASE + ', opacity .3s ' + EASE);
+            lbImg.style.transform = '';
+            lbImg.style.opacity = '';
+        };
+
+        lb.addEventListener('touchstart', function (e) {
+            if (e.touches.length !== 1) { tracking = false; return; } // ignore pinch
+            sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+            dx = dy = 0; tracking = true; moved = false;
+            lbImg.style.transition = 'none';
+        }, { passive: true });
+
+        lb.addEventListener('touchmove', function (e) {
+            if (!tracking || e.touches.length !== 1) return;
+            dx = e.touches[0].clientX - sx;
+            dy = e.touches[0].clientY - sy;
+            if (!moved && Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
+            moved = true;
+            var horizontal = Math.abs(dx) > Math.abs(dy);
+            if (horizontal) {
+                e.preventDefault(); // block browser back-gesture / scroll
+                if (!reduceMotion) lbImg.style.transform = 'translateX(' + dx + 'px)';
+            } else if (dy > 0 && !reduceMotion) {
+                lbImg.style.transform = 'translateY(' + dy + 'px)';
+                lbImg.style.opacity = String(Math.max(0.35, 1 - dy / 400));
+            }
+        }, { passive: false });
+
+        lb.addEventListener('touchend', function () {
+            if (!tracking) return;
+            tracking = false;
+            var horizontal = Math.abs(dx) > Math.abs(dy);
+            if (horizontal && Math.abs(dx) > THRESH_X) {
+                springBack();
+                show(dx < 0 ? current + 1 : current - 1);
+            } else if (!horizontal && dy > THRESH_Y) {
+                close();
+                setTimeout(springBack, 60);
+            } else {
+                springBack();
+            }
+        });
     }
 
     /* ---------- Reviews carousel ---------- */
