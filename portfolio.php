@@ -23,9 +23,9 @@ $page_keywords = [
  * Add or renumber freely as the real gallery is finalized.
  */
 $groups = [
-    'Traditional Japanese' => [[1, 'Koi'], [2, 'Dragon'], [3, 'Hannya'], [4, 'Peony']],
-    'Neo / Modern Japanese' => [[5, 'Tiger'], [6, 'Wind & Water'], [7, 'Snake'], [8, 'Foo Dog']],
-    'Custom & Black-and-Grey' => [[9, 'Sleeve'], [10, 'Floral'], [11, 'Cover-Up'], [12, 'Fine Line']],
+    'Traditional Japanese'  => [[1, 'Koi'], [2, 'Dragon'], [3, 'Hannya'], [4, 'Peony']],
+    'Flowers & Nature'      => [[5, 'Chrysanthemum'], [6, 'Lotus'], [7, 'Phoenix'], [9, 'Cherry Blossom']],
+    'Sleeves & Bodywork'    => [[8, 'Snake'], [10, 'Full Back'], [11, 'Full Sleeve'], [12, 'Chest & Shoulder']],
 ];
 ?>
 <?php require __DIR__ . '/includes/header.php'; ?>

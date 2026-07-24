@@ -315,10 +315,12 @@ p { margin: 0 0 1.1em; }
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .work-card {
+    position: relative;
     flex: 0 0 clamp(220px, 24vw, 300px);
     aspect-ratio: 3 / 4;
     scroll-snap-align: start;
     border-radius: var(--radius);
+    overflow: hidden;
     transition: transform .5s var(--ease), border-color .5s var(--ease), box-shadow .5s var(--ease);
 }
 .work-card figcaption {

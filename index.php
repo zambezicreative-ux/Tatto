@@ -35,8 +35,8 @@ $steps = [
     ['no' => '04', 'title' => 'Aftercare',    'text' => 'Guidance and support through healing, long after the final session.'],
 ];
 
-// Placeholder motifs for the portfolio teaser (traditional Japanese subjects).
-$portfolio = ['Koi', 'Dragon', 'Hannya', 'Peony', 'Tiger', 'Wind & Water', 'Snake'];
+// Home portfolio teaser — first 8 pieces (map to assets/img/portfolio-01..08).
+$portfolio = ['Koi', 'Dragon', 'Hannya', 'Peony', 'Chrysanthemum', 'Lotus', 'Phoenix', 'Snake'];
 
 // Services — exactly what Mark offers (questionnaire section 9).
 $services = [
